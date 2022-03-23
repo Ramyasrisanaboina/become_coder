@@ -1,0 +1,100 @@
+
+//vectors
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	vector<int>ve,ve2;
+	ve.push_back(100);
+	ve.emplace_back(20);
+	ve.emplace_back(30);
+	
+ve.emplace_back(34);
+ve.emplace_back(13);
+
+	for(int i=0;i<ve.size();i++)
+		cout<<ve[i]<<" ";
+	ve.pop_back();
+	cout<<endl;
+
+//since we poped 30, it becomes garbage value
+	//iterator declaration
+	auto it1=ve.begin();
+	cout<<*it1<<endl;
+	auto it2=ve.end();
+	cout<<*it2<<endl;
+	
+  //ways to print the vector
+	//end() function points to next position of last element
+	//eg:[2 3 4 5 6]
+	// end() points to next of 6
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<" ";
+
+	}
+	cout<<endl;
+	for(auto it3=ve.begin();it3!=ve.end();it3++)
+	{
+		cout<<*it3;
+	}
+	cout<<endl;
+	
+  
+  //sort vector
+	sort(ve.begin(),ve.end());
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<" ";
+
+	}
+	
+	cout<<endl;
+
+//erase function
+	ve.erase(ve.begin());//erase 1 st element
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<" ";
+
+	}
+	cout<<endl;
+	ve.erase(ve.begin()+1,ve.begin()+2);//erase elements from 1st element to last no-1 element
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<" ";
+
+	}cout<<endl;
+
+
+//insert
+	ve.insert(ve.begin(),13);//inserted at begining
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<endl;
+
+	}
+	ve.insert(ve.begin(),2,12);//two 12's are added at beginning
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<endl;
+
+	}
+	ve2.emplace_back(12);
+	ve2.emplace_back(13);
+  
+  
+	//swap function
+	ve.swap(ve2);
+	for(vector<int>::iterator it=ve.begin();it!=ve.end();it++)
+	{
+		cout<<*it<<" ";//ve swaped with ve2
+
+	}
+	cout<<endl;
+  
+  
+	ve.clear();//to clear all the values
+    cout<<ve.empty();//gives 1 if vector is empty
+
+}
