@@ -1,0 +1,32 @@
+//list-->we can insert from front also unlike vector
+//map--> have key and value like dictionery having word and meaning
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+//syntax:map<key_type,value_type>name;
+map<int,int>mpp;
+int arr[20]={1,2,1,3,1,4,3,1,6,7,9};
+for (int i = 0; i < 9; ++i)
+{
+	mpp[arr[i]]++;
+}
+
+for(auto it:mpp)
+{
+	cout<<it.first<<" "<<it.second<<endl;
+}
+
+//unordered map
+unordered_map<int,int>mpp;
+for (int i = 0; i <= 9; ++i)
+{
+	mpp[arr[i]]++;/* code */
+}
+
+for(auto it:mpp)
+{
+	cout<<it.first<<" "<<it.second<<endl;
+}
+
+}
