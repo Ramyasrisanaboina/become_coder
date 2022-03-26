@@ -9,7 +9,11 @@ int main()
 	st.insert(10);
 	st.insert(20);
 	st.insert(10);
-	
+	for(aut0 it2:st)
+	{
+		cout<<st<<" ";
+	}
+	cout<<endl;
 	auto it=st.find(10);
 	cout<<*it<<endl;//prints the data;
 
