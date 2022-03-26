@@ -1,0 +1,24 @@
+//it doesnot allow duplicates
+//declaration of set
+//syntax:set<data type>name;
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	set<int>st;
+	st.insert(10);
+	st.insert(20);
+	st.insert(10);
+	
+	auto it=st.find(10);
+	cout<<*it<<endl;//prints the data;
+
+	auto it1=st.find(30);//if element is not present goes to last+1 position
+    cout<<*it1;
+    st.erase(20);//erase 20 from set
+    st.erase(it,it1);//remove nos b/w it and it1    
+
+
+
+
+}
