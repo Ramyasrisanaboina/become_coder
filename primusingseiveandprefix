@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long N=1000001;
+vector<bool>primes(N,true);
+vector<int>prefix(N,0);
+bool GEN_seive()
+{
+	primes[0]=primes[1]=false;//marking 0 and 1 as non prime(false)
+	//start the loop from 2 and mark its multiples as false
+	for(int i=2;i*i<N;i++)//factors will be there till the square root only
+	{
+		if(primes[i]==true){
+			for(int j=i*i;j<= N;j+=i)
+			{
+				primes[j]=false;
+			}
+		}
+	}
+	for(int i=1;i<N;i++)
+		prefix[i]=prefix[i-1]+primes[i];
+	
+}
+int main()
+{
+	GEN_seive();
+	int r;
+	cin>>r;
+	cout<<prefix[r];
+
+}
