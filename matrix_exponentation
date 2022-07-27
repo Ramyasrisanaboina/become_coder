@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct Matrix{
+	int mat[2][2];
+};
+Matrix identity()
+{
+	Matrix c;
+	c.mat[0][0]=1,c.mat[0][1]=0;
+	c.mat[1][0]=0,c.mat[1][1]=1;
+	return c;
+}
+Matrix mul(Matrix A,Matrix B)
+{
+	Matrix c;
+	for(int i=0;i<2;i++)
+	{
+		for(int j=0;j<2;j++)
+		{
+			int res=0;
+			for(int k=0;k<2;k++)
+			{
+				res+=A.mat[i][k]*B.mat[k][j];
+			}
+			c.mat[i][j]=res;
+		}
+	}
+	return c;
+}
+Matrix matpow(Matrix a,int n)
+{
+	if(n==0)  return identity();
+	Matrix tmp=matpow(a,n/2);
+	if(n%2==0) return mul(tmp,tmp);
+	else return mul(mul(tmp,tmp),a);
+
+}
+int main()
+{
+    Matrix A;
+A.mat[0][0]=1,A.mat[0][1]=2;
+A.mat[1][0]=1,A.mat[1][1]=0;
+int n;
+cin>>n;
+Matrix B;
+B=matpow(A,n);
+cout<<B.mat[0][0]<<" "<<B.mat[0][1]<<endl;
+cout<<B.mat[1][0]<<" "<<B.mat[1][1]<<endl;
+}
