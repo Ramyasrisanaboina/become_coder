@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		int sh,sm;
+        int bh,bm;
+		cin>>sh>>sm;
+		while(n--)
+		{
+            int ph=0,pm=0;
+            int temp=1441;
+			int ah,am;
+			cin>>ah>>am;
+      //if am is lesser than sm we need to add 60 min to am and sub 1hr from ah if we can directly subtract
+			if(am<sm)
+			{
+				am=am+60;
+				ah=ah-1;
+				pm=am-sm;
+
+			}
+			else
+			{
+				pm=am-sm;
+			}
+      //if ah is less than sh we need add 24 to the ah
+			if(ah<sh)
+			{
+				ah+=24;
+				ph=ah-sh;
+			}
+			else
+			{
+				ph=ah-sh;
+			}
+			int cnt=(ph*60)+pm;
+		    if(cnt<temp)
+		    {
+		    	bh=ph;
+                bm=pm;
+                temp=(bh*60)+bm;
+		    }
+
+		}
+		
+        cout<<bh<<" "<<bm<<"\n";
+	}
+}
