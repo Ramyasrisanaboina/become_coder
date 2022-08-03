@@ -9,42 +9,32 @@ int main()
 		int n;
 		cin>>n;
 		int sh,sm;
+		int temp=1441;
         int bh,bm;
 		cin>>sh>>sm;
 		while(n--)
 		{
-            int ph=0,pm=0;
-            int temp=1441;
+			int cnt=0;
 			int ah,am;
 			cin>>ah>>am;
-      //if am is lesser than sm we need to add 60 min to am and sub 1hr from ah if we can directly subtract
 			if(am<sm)
 			{
 				am=am+60;
 				ah=ah-1;
-				pm=am-sm;
-
 			}
-			else
-			{
-				pm=am-sm;
-			}
-      //if ah is less than sh we need add 24 to the ah
 			if(ah<sh)
 			{
 				ah+=24;
-				ph=ah-sh;
 			}
-			else
-			{
-				ph=ah-sh;
-			}
-			int cnt=(ph*60)+pm;
+			am=am-sm;
+			ah=ah-sh;
+			cnt=(ah*60)+am;
 		    if(cnt<temp)
 		    {
-		    	bh=ph;
-                bm=pm;
-                temp=(bh*60)+bm;
+		    	temp=cnt;
+		    	bh=ah;
+                bm=am;
+               
 		    }
 
 		}
