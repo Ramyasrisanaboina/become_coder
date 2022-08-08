@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+class ExtendedData{
+   public:
+   	ll gcd;
+   	ll x;
+   	ll y;
+
+};
+ExtendedData ExtendedGcd(int a,int b)
+{
+	//base case after few steps b=0 and a=1 
+	//ax+by=gcd(a,b)
+	//1->bx+(a%b)y=gdc(b,a%b) after few n steps xn=1,yn=0,b=0 and gcd=a
+	if(b==0)
+	{
+		ExtendedData base;
+		base.gcd=a;
+		base.x=1;
+		base.y=0;
+		return base;
+
+	}
+	ExtendedData temp=ExtendedGcd(b,a%b);
+	ExtendedData ans;
+	ans.gcd=temp.gcd;
+	ans.x=temp.y;
+	ans.y=temp.x-(a/b)*temp.y;
+	return ans;
+
+}
+int main()
+{
+	ll a,b;
+	cin>>a>>b;
+	ExtendedData myans;
+	myans=ExtendedGcd(a,b);
+	cout<<myans.gcd<<" "<<myans.x<<" "<<myans.y;
+}
